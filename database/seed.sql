@@ -34,17 +34,17 @@ INSERT INTO health_grids (grid_id, district, latitude, longitude, population, po
   ('G023', 'Maple Ridge', 17.5287, 78.4088, 10700, 3500, 0, 3.8),
   ('G024', 'Maple Ridge', 17.5821, 78.4823, 8900, 2900, 0, 5.6);
 
-INSERT INTO hospitals (hospital_id, hospital_name, district, latitude, longitude, hospital_type, total_beds, icu_beds, emergency_beds) VALUES
-  ('H001', 'Arambagh General Hospital', 'Arambagh', 17.418, 78.4985, 'Government', 420, 45, 60),
-  ('H002', 'Silverwood Medical Centre', 'Silverwood', 17.4502, 78.391, 'Private', 260, 30, 40),
-  ('H003', 'Lakeview Multispeciality Hospital', 'Lakeview', 17.5089, 78.5521, 'Private', 310, 35, 45),
-  ('H004', 'Old Town Charity Hospital', 'Old Town', 17.3612, 78.4901, 'Government', 180, 20, 25),
-  ('H005', 'Harbour East Trauma & Emergency Hospital', 'Harbour East', 17.3956, 78.5988, 'Specialty', 150, 28, 50),
-  ('H006', 'Maple Ridge Community Hospital', 'Maple Ridge', 17.5455, 78.437, 'Government', 140, 12, 18),
-  ('H007', 'St. Aurelia Teaching Hospital', 'Old Town', 17.352, 78.5105, 'Teaching', 520, 60, 70),
-  ('H008', 'Crescent Care Hospital', 'Lakeview', 17.521, 78.5745, 'Private', 200, 22, 30),
-  ('H009', 'Northgate Cardiac Institute', 'Arambagh', 17.4355, 78.4765, 'Specialty', 160, 40, 20),
-  ('H010', 'Silverwood Institute of Medical Sciences', 'Silverwood', 17.469, 78.3965, 'Teaching', 380, 42, 55);
+INSERT INTO hospitals (hospital_id, hospital_name, district, latitude, longitude, hospital_type, total_beds, icu_beds, emergency_beds,beds_reported) VALUES
+  ('H001', 'Arambagh General Hospital', 'Arambagh', 17.418, 78.4985, 'Government', 420, 45, 60, TRUE),
+  ('H002', 'Silverwood Medical Centre', 'Silverwood', 17.4502, 78.391, 'Private', 260, 30, 40, TRUE),
+  ('H003', 'Lakeview Multispeciality Hospital', 'Lakeview', 17.5089, 78.5521, 'Private', 310, 35, 45, TRUE),
+  ('H004', 'Old Town Charity Hospital', 'Old Town', 17.3612, 78.4901, 'Government', 180, 20, 25, TRUE),
+  ('H005', 'Harbour East Trauma & Emergency Hospital', 'Harbour East', 17.3956, 78.5988, 'Specialty', 150, 28, 50, TRUE),
+  ('H006', 'Maple Ridge Community Hospital', 'Maple Ridge', 17.5455, 78.437, 'Government', 140, 12, 18, TRUE),
+  ('H007', 'St. Aurelia Teaching Hospital', 'Old Town', 17.352, 78.5105, 'Teaching', 520, 60, 70, TRUE),
+  ('H008', 'Crescent Care Hospital', 'Lakeview', 17.521, 78.5745, 'Private', 200, 22, 30, TRUE),
+  ('H009', 'Northgate Cardiac Institute', 'Arambagh', 17.4355, 78.4765, 'Specialty', 160, 40, 20, TRUE),
+  ('H010', 'Silverwood Institute of Medical Sciences', 'Silverwood', 17.469, 78.3965, 'Teaching', 380, 42, 55, TRUE);
 
 INSERT INTO patients (patient_id, age, gender, district, blood_pressure_systolic, blood_pressure_diastolic, cholesterol, glucose, bmi, heart_rate, previous_cardiac_history, diabetes, hypertension) VALUES
   ('P001', 66, 'M', 'Arambagh', 122, 78, 204, 96, 24.1, 72, FALSE, FALSE, FALSE),
