@@ -41,7 +41,11 @@ def delhi_map(db: Session = Depends(get_db)):
         ).order_by(DelhiHospital.name.nulls_last(), DelhiHospital.source_id)
     ).all()
 
-    rings = db.execute(text("SELECT rings FROM delhi_boundary WHERE id = 1")).scalar_one()
+    boundary_result = db.execute(
+    text("SELECT rings FROM delhi_boundary WHERE id = 1")
+    ).scalar_one_or_none()
+
+    rings = boundary_result if boundary_result is not None else []
 
     return {
         "source": "urban-shadow",
