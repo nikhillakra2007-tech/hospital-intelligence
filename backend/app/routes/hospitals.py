@@ -16,7 +16,7 @@ def list_hospitals(
     skip: int = Query(0, ge=0),
     limit: int = Query(100, ge=1, le=1000),
     district: Optional[str] = Query(None, max_length=100),
-    hospital_type: Optional[Literal["Government", "Private", "Trust", "Unknown"]] = Query(None),
+    hospital_type: Optional[Literal["Government", "Private", "Trust", "Unknown", "Specialty", "Teaching"]] = Query(None),
     db: Session = Depends(get_db),
 ):
     stmt = select(Hospital).order_by(Hospital.hospital_id)
