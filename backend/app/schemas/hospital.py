@@ -2,7 +2,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-HospitalType = Literal["Government", "Private", "Trust", "Unknown"]
+HospitalType = Literal["Government", "Private", "Trust", "Unknown", "Specialty", "Teaching"]
 
 
 class HospitalBase(BaseModel):
