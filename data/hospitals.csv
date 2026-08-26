@@ -1,0 +1,11 @@
+hospital_id,hospital_name,district,latitude,longitude,hospital_type,total_beds,icu_beds,emergency_beds
+H001,Arambagh General Hospital,Arambagh,17.418,78.4985,Government,420,45,60
+H002,Silverwood Medical Centre,Silverwood,17.4502,78.391,Private,260,30,40
+H003,Lakeview Multispeciality Hospital,Lakeview,17.5089,78.5521,Private,310,35,45
+H004,Old Town Charity Hospital,Old Town,17.3612,78.4901,Government,180,20,25
+H005,Harbour East Trauma & Emergency Hospital,Harbour East,17.3956,78.5988,Specialty,150,28,50
+H006,Maple Ridge Community Hospital,Maple Ridge,17.5455,78.437,Government,140,12,18
+H007,St. Aurelia Teaching Hospital,Old Town,17.352,78.5105,Teaching,520,60,70
+H008,Crescent Care Hospital,Lakeview,17.521,78.5745,Private,200,22,30
+H009,Northgate Cardiac Institute,Arambagh,17.4355,78.4765,Specialty,160,40,20
+H010,Silverwood Institute of Medical Sciences,Silverwood,17.469,78.3965,Teaching,380,42,55

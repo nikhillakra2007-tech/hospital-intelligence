@@ -1,0 +1,108 @@
+{
+  "model_version": "HospitalRiskModel-v1",
+  "model_type": "RandomForestClassifier",
+  "trained_at": "2026-08-26T11:28:02.991933+00:00",
+  "random_state": 42,
+  "training_rows": 37,
+  "test_rows": 13,
+  "class_distribution": {
+    "Moderate": 23,
+    "Low": 15,
+    "High": 12
+  },
+  "feature_columns": [
+    "age",
+    "blood_pressure_systolic",
+    "blood_pressure_diastolic",
+    "cholesterol",
+    "glucose",
+    "bmi",
+    "heart_rate",
+    "pulse_pressure",
+    "previous_cardiac_history",
+    "diabetes",
+    "hypertension"
+  ],
+  "thresholds": {
+    "moderate_min": 0.4,
+    "high_min": 0.7
+  },
+  "metrics": {
+    "accuracy": 0.9231,
+    "precision_macro": 0.9524,
+    "recall_macro": 0.9167,
+    "f1_macro": 0.9267,
+    "roc_auc_macro_ovr": 1.0
+  },
+  "confusion_matrix": {
+    "labels": [
+      "High",
+      "Low",
+      "Moderate"
+    ],
+    "matrix": [
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        0,
+        0,
+        6
+      ]
+    ]
+  },
+  "feature_importance": [
+    {
+      "feature": "heart_rate",
+      "importance": 0.1874
+    },
+    {
+      "feature": "age",
+      "importance": 0.1774
+    },
+    {
+      "feature": "glucose",
+      "importance": 0.1429
+    },
+    {
+      "feature": "cholesterol",
+      "importance": 0.1321
+    },
+    {
+      "feature": "pulse_pressure",
+      "importance": 0.1166
+    },
+    {
+      "feature": "blood_pressure_systolic",
+      "importance": 0.1081
+    },
+    {
+      "feature": "blood_pressure_diastolic",
+      "importance": 0.0961
+    },
+    {
+      "feature": "previous_cardiac_history",
+      "importance": 0.0142
+    },
+    {
+      "feature": "bmi",
+      "importance": 0.012
+    },
+    {
+      "feature": "hypertension",
+      "importance": 0.0078
+    },
+    {
+      "feature": "diabetes",
+      "importance": 0.0056
+    }
+  ],
+  "portable_engine_max_abs_diff_vs_sklearn": 0.0
+}
