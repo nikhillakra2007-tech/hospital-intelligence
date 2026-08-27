@@ -1,3 +1,9 @@
+### 🌐 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Hospital%20Intelligence-blue?style=for-the-badge)](https://hospital-intelligence-theta.vercel.app/)
+
+**[Open the deployed application →](https://hospital-intelligence-theta.vercel.app/)**
+
 # Hospital Intelligence - Backend
 
 FastAPI backend for the Hospital Intelligence platform. It serves the existing
