@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { checkHealth, extractErrorMessage } from "@/services/api";
+import { api, extractErrorMessage } from "@/services/api";
 
 interface ApiState<T> {
   data: T | null;
@@ -47,14 +47,27 @@ export type BackendStatus = "checking" | "online" | "offline";
 
 export function useBackendStatus(): BackendStatus {
   const [status, setStatus] = useState<BackendStatus>("checking");
+
   useEffect(() => {
     let active = true;
-    checkHealth()
-      .then(() => active && setStatus("online"))
-      .catch(() => active && setStatus("offline"));
+
+    // Use an API endpoint that is already confirmed to work
+    // from the deployed Vercel frontend.
+    api
+      .get("/api/dashboard/summary", {
+        timeout: 15000,
+      })
+      .then(() => {
+        if (active) setStatus("online");
+      })
+      .catch(() => {
+        if (active) setStatus("offline");
+      });
+
     return () => {
       active = false;
     };
   }, []);
+
   return status;
 }
