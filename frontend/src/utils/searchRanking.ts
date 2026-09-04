@@ -17,9 +17,9 @@ export interface RankedHospital extends Hospital {
 export function relevanceScore(hospital: Hospital, rawQuery: string): number {
   const q = rawQuery.trim().toLowerCase();
   if (!q) return -1;
-  const name = hospital.hospital_name.toLowerCase();
+  const name = (hospital.hospital_name ?? "").toLowerCase();
   const locality = (hospital.locality ?? "").toLowerCase();
-  const district = hospital.district.toLowerCase();
+  const district = (hospital.district ?? "").toLowerCase();
 
   if (name === q) return 100;
   if (name.startsWith(q)) return 90;
@@ -37,7 +37,7 @@ export function rankHospitals(hospitals: Hospital[], rawQuery: string): RankedHo
     if (score >= 0) scored.push({ ...h, _rank: score });
   }
   return scored.sort(
-    (a, b) => b._rank - a._rank || a.hospital_name.localeCompare(b.hospital_name),
+    (a, b) => b._rank - a._rank || (a.hospital_name ?? "").localeCompare(b.hospital_name ?? ""),
   );
 }
 

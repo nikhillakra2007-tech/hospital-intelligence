@@ -1,6 +1,6 @@
 from typing import Any
 
-from sqlalchemy import Boolean, Float, Integer, String, Text
+from sqlalchemy import BigInteger, Boolean, Float, Integer, String, Text
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -20,7 +20,7 @@ class DelhiHospital(Base):
     __tablename__ = "delhi_hospitals"
 
     source_element: Mapped[str] = mapped_column(String(16), primary_key=True)
-    source_id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    source_id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     name: Mapped[str | None] = mapped_column(Text)
     kind: Mapped[str] = mapped_column(Text)
     emergency: Mapped[bool | None] = mapped_column(Boolean)

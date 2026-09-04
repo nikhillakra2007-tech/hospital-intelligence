@@ -53,12 +53,6 @@ def _zone_environmental_signal(db: Session, grid_id: str | None) -> float | None
     """Normalised [0,1] environmental severity for the zone (higher = worse)."""
     if not grid_id:
         return None
-    avg_aqi = db.scalar(
-        select(EnvironmentalData.aqi)
-        .where(EnvironmentalData.grid_id == grid_id)
-    )
-    if avg_aqi is None:
-        return None
     rows = db.scalars(
         select(EnvironmentalData.aqi).where(EnvironmentalData.grid_id == grid_id)
     ).all()
@@ -85,11 +79,23 @@ def _score_all_patients(db: Session) -> list[dict[str, Any]]:
         )
     ).all()
 
+    # Bulk fetch the most recent assessment category for each patient in a single query
+    stored_rows = db.execute(
+        select(RiskAssessment.patient_id, RiskAssessment.risk_category)
+        .distinct(RiskAssessment.patient_id)
+        .order_by(
+            RiskAssessment.patient_id,
+            RiskAssessment.assessment_date.desc(),
+            RiskAssessment.risk_assessment_id.desc(),
+        )
+    ).all()
+    stored_categories = {row[0]: row[1] for row in stored_rows}
+
     results = []
     for patient, hospital_name in rows:
         features = feature_vector({c.name: getattr(patient, c.name) for c in patient.__table__.columns})
         prediction = predict_risk(features)
-        stored = _stored_category(db, patient.patient_id)
+        stored = stored_categories.get(patient.patient_id)
         results.append(
             {
                 "patient_id": patient.patient_id,

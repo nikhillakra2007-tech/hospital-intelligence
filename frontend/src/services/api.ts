@@ -23,7 +23,7 @@ const baseURL = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000";
 
 export const api = axios.create({
   baseURL,
-  timeout: 15000,
+  timeout: 60000,
 });
 
 export function extractErrorMessage(error: unknown): string {
@@ -32,8 +32,8 @@ export function extractErrorMessage(error: unknown): string {
       error.response?.data as { detail?: unknown } | undefined
     )?.detail;
     if (typeof detail === "string") return detail;
-    if (error.code === "ECONNABORTED") return "The request timed out.";
-    if (!error.response) return "Cannot reach the API server. Is the backend running?";
+    if (error.code === "ECONNABORTED") return "The request timed out. If the backend is waking from sleep, please retry in a few moments.";
+    if (!error.response) return "Cannot reach the API server. The backend may be spinning up from sleep; please wait a few seconds and retry.";
     return `Request failed with status ${error.response.status}.`;
   }
   return error instanceof Error ? error.message : "An unexpected error occurred.";

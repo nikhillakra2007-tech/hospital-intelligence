@@ -25,6 +25,8 @@ frontend/.vite/
 # IDE
 .vscode/
 .idea/
+.claude/
+.specify/
 
 # OS
 .DS_Store

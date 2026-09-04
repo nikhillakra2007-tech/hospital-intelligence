@@ -82,7 +82,7 @@ export default function Hospitals() {
     const q = debouncedQuery.trim().toLowerCase();
     return baseFiltered.filter(
       (h) =>
-        h.hospital_name.toLowerCase().includes(q) ||
+        (h.hospital_name ?? "").toLowerCase().includes(q) ||
         (h.locality ?? "").toLowerCase().includes(q),
     );
   }, [mode, debouncedQuery, baseFiltered, enrichedBrowse]);
