@@ -154,7 +154,7 @@ export default function Dashboard() {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="flex items-center gap-2 text-xl font-semibold tracking-tight sm:text-2xl">
-            {greetingForHour(now.getHours())}, Nikhil
+            {greetingForHour(now.getHours())}
             <span className="badge-slate">Synthetic data</span>
           </h1>
           <p className="muted mt-1 text-sm">
